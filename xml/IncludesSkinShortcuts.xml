@@ -86,10 +86,10 @@
             <radiowidth>100</radiowidth>
             <radioheight>50</radioheight>
             <radioposx>414</radioposx>
-			<textureradiofocus colordiffuse="$INFO[Skin.String(ActiveSpinControlColor)]">common/radio/radio-button-fo-small.png</textureradiofocus>
-			<textureradionofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/radio/radio-button-nf-small.png</textureradionofocus>
-			<textureradioondisabled colordiffuse="aaffffff">common/radio/radio-button-fo-small.png</textureradioondisabled>
-			<textureradiooffdisabled colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/radio/radio-button-nf-small.png</textureradiooffdisabled>
+			<textureradiofocus colordiffuse="$INFO[Skin.String(ActiveSpinControlColor)]">common/radio/radio-button-fo.png</textureradiofocus>
+			<textureradionofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/radio/radio-button-nf.png</textureradionofocus>
+			<textureradioondisabled colordiffuse="aaffffff">common/radio/radio-button-fo.png</textureradioondisabled>
+			<textureradiooffdisabled colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/radio/radio-button-nf.png</textureradiooffdisabled>
             <selected>String.IsEqual(Container(211).ListItem.Property(widgetForceRefresh$PARAM[widgetprop]), refresh)</selected>
             <visible>!String.IsEmpty(Container(211).ListItem.Property(widgetPath$PARAM[widgetprop]))</visible>
             <visible>String.Contains(Container(211).ListItem.Property(widgetPath$PARAM[widgetprop]), plugin://) | String.Contains(Container(211).ListItem.Property(widgetPath$PARAM[widgetprop]), favourite) | String.Contains(Container(211).ListItem.Property(widgetPath$PARAM[widgetprop]), xsp)</visible>
@@ -104,10 +104,10 @@
             <radiowidth>100</radiowidth>
             <radioheight>50</radioheight>
             <radioposx>414</radioposx>
-			<textureradiofocus colordiffuse="$INFO[Skin.String(ActiveSpinControlColor)]">common/radio/radio-button-fo-small.png</textureradiofocus>
-			<textureradionofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/radio/radio-button-nf-small.png</textureradionofocus>
-			<textureradioondisabled colordiffuse="aaffffff">common/radio/radio-button-fo-small.png</textureradioondisabled>
-			<textureradiooffdisabled colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/radio/radio-button-nf-small.png</textureradiooffdisabled>
+			<textureradiofocus colordiffuse="$INFO[Skin.String(ActiveSpinControlColor)]">common/radio/radio-button-fo.png</textureradiofocus>
+			<textureradionofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/radio/radio-button-nf.png</textureradionofocus>
+			<textureradioondisabled colordiffuse="aaffffff">common/radio/radio-button-fo.png</textureradioondisabled>
+			<textureradiooffdisabled colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/radio/radio-button-nf.png</textureradiooffdisabled>
             <selected>String.IsEqual(Container(211).ListItem.Property(widgetAutoRotate$PARAM[widgetprop]), enabled)</selected>
             <visible>Skin.String(widgets_rotate,override)</visible>
             <visible>!String.IsEmpty(Container(211).ListItem.Property(widgetPath$PARAM[widgetprop]))</visible>
@@ -210,10 +210,10 @@
             <radiowidth>100</radiowidth>
             <radioheight>50</radioheight>
             <radioposx>414</radioposx>
-			<textureradiofocus colordiffuse="$INFO[Skin.String(ActiveSpinControlColor)]">common/radio/radio-button-fo-small.png</textureradiofocus>
-			<textureradionofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/radio/radio-button-nf-small.png</textureradionofocus>
-			<textureradioondisabled colordiffuse="aaffffff">common/radio/radio-button-fo-small.png</textureradioondisabled>
-			<textureradiooffdisabled colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/radio/radio-button-nf-small.png</textureradiooffdisabled>
+			<textureradiofocus colordiffuse="$INFO[Skin.String(ActiveSpinControlColor)]">common/radio/radio-button-fo.png</textureradiofocus>
+			<textureradionofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/radio/radio-button-nf.png</textureradionofocus>
+			<textureradioondisabled colordiffuse="aaffffff">common/radio/radio-button-fo.png</textureradioondisabled>
+			<textureradiooffdisabled colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/radio/radio-button-nf.png</textureradiooffdisabled>
             <selected>String.IsEqual(Container(211).ListItem.Property(widgetForceRefresh$PARAM[widgetprop]), refresh)</selected>
             <visible>!String.IsEmpty(Container(211).ListItem.Property(widgetPath$PARAM[widgetprop]))</visible>
             <visible>String.Contains(Container(211).ListItem.Property(widgetPath$PARAM[widgetprop]), plugin://) | String.Contains(Container(211).ListItem.Property(widgetPath$PARAM[widgetprop]), favourite) | String.Contains(Container(211).ListItem.Property(widgetPath$PARAM[widgetprop]), xsp)</visible>
@@ -228,10 +228,10 @@
             <radiowidth>100</radiowidth>
             <radioheight>50</radioheight>
             <radioposx>414</radioposx>
-			<textureradiofocus colordiffuse="$INFO[Skin.String(ActiveSpinControlColor)]">common/radio/radio-button-fo-small.png</textureradiofocus>
-			<textureradionofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/radio/radio-button-nf-small.png</textureradionofocus>
-			<textureradioondisabled colordiffuse="aaffffff">common/radio/radio-button-fo-small.png</textureradioondisabled>
-			<textureradiooffdisabled colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/radio/radio-button-nf-small.png</textureradiooffdisabled>
+			<textureradiofocus colordiffuse="$INFO[Skin.String(ActiveSpinControlColor)]">common/radio/radio-button-fo.png</textureradiofocus>
+			<textureradionofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/radio/radio-button-nf.png</textureradionofocus>
+			<textureradioondisabled colordiffuse="aaffffff">common/radio/radio-button-fo.png</textureradioondisabled>
+			<textureradiooffdisabled colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/radio/radio-button-nf.png</textureradiooffdisabled>
             <selected>String.IsEqual(Container(211).ListItem.Property(widgetAutoRotate$PARAM[widgetprop]), enabled)</selected>
             <visible>Skin.String(widgets_rotate,override)</visible>
             <visible>!String.IsEmpty(Container(211).ListItem.Property(widgetPath$PARAM[widgetprop]))</visible>
@@ -246,10 +246,10 @@
             <radiowidth>100</radiowidth>
             <radioheight>50</radioheight>
             <radioposx>414</radioposx>
-			<textureradiofocus colordiffuse="$INFO[Skin.String(ActiveSpinControlColor)]">common/radio/radio-button-fo-small.png</textureradiofocus>
-			<textureradionofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/radio/radio-button-nf-small.png</textureradionofocus>
-			<textureradioondisabled colordiffuse="aaffffff">common/radio/radio-button-fo-small.png</textureradioondisabled>
-			<textureradiooffdisabled colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/radio/radio-button-nf-small.png</textureradiooffdisabled>
+			<textureradiofocus colordiffuse="$INFO[Skin.String(ActiveSpinControlColor)]">common/radio/radio-button-fo.png</textureradiofocus>
+			<textureradionofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/radio/radio-button-nf.png</textureradionofocus>
+			<textureradioondisabled colordiffuse="aaffffff">common/radio/radio-button-fo.png</textureradioondisabled>
+			<textureradiooffdisabled colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/radio/radio-button-nf.png</textureradiooffdisabled>
             <selected>String.IsEqual(Container(211).ListItem.Property(widgetFixedFocus$PARAM[widgetprop]), enabled) | String.Contains(Container(211).ListItem.Property(widgetstyle$PARAM[widgetprop]),details)</selected>
             <visible>!String.IsEmpty(Container(211).ListItem.Property(widgetPath$PARAM[widgetprop])) + !String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
         </control>
@@ -295,10 +295,10 @@
             <radiowidth>100</radiowidth>
             <radioheight>50</radioheight>
             <radioposx>415</radioposx>
-			<textureradiofocus colordiffuse="$INFO[Skin.String(ActiveSpinControlColor)]">common/radio/radio-button-fo-small.png</textureradiofocus>
-			<textureradionofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/radio/radio-button-nf-small.png</textureradionofocus>
-			<textureradioondisabled colordiffuse="aaffffff">common/radio/radio-button-fo-small.png</textureradioondisabled>
-			<textureradiooffdisabled colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/radio/radio-button-nf-small.png</textureradiooffdisabled>
+			<textureradiofocus colordiffuse="$INFO[Skin.String(ActiveSpinControlColor)]">common/radio/radio-button-fo.png</textureradiofocus>
+			<textureradionofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/radio/radio-button-nf.png</textureradionofocus>
+			<textureradioondisabled colordiffuse="aaffffff">common/radio/radio-button-fo.png</textureradioondisabled>
+			<textureradiooffdisabled colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/radio/radio-button-nf.png</textureradiooffdisabled>
             <selected>String.IsEqual(Container(211).ListItem.Property(widgetstyle$PARAM[widgetprop]),highlight)</selected>
             <visible>!String.IsEmpty(Container(211).ListItem.Property(widgetPath$PARAM[widgetprop]))</visible>
 			<visible>[String.IsEqual(Container(211).ListItem.Property(action),ActivateWindow(home,return)) | String.IsEqual(Container(211).ListItem.Property(action),ActivateWindow(10000,return))]</visible>
@@ -359,10 +359,10 @@
             <radiowidth>100</radiowidth>
             <radioheight>50</radioheight>
             <radioposx>414</radioposx>
-			<textureradiofocus colordiffuse="$INFO[Skin.String(ActiveSpinControlColor)]">common/radio/radio-button-fo-small.png</textureradiofocus>
-			<textureradionofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/radio/radio-button-nf-small.png</textureradionofocus>
-			<textureradioondisabled colordiffuse="aaffffff">common/radio/radio-button-fo-small.png</textureradioondisabled>
-			<textureradiooffdisabled colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/radio/radio-button-nf-small.png</textureradiooffdisabled>
+			<textureradiofocus colordiffuse="$INFO[Skin.String(ActiveSpinControlColor)]">common/radio/radio-button-fo.png</textureradiofocus>
+			<textureradionofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/radio/radio-button-nf.png</textureradionofocus>
+			<textureradioondisabled colordiffuse="aaffffff">common/radio/radio-button-fo.png</textureradioondisabled>
+			<textureradiooffdisabled colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/radio/radio-button-nf.png</textureradiooffdisabled>
             <selected>String.IsEqual(Container(211).ListItem.Property(widgetForceRefresh$PARAM[widgetprop]), refresh)</selected>
             <visible>!String.IsEmpty(Container(211).ListItem.Property(widgetPath$PARAM[widgetprop]))</visible>
             <visible>String.Contains(Container(211).ListItem.Property(widgetPath$PARAM[widgetprop]), plugin://) | String.Contains(Container(211).ListItem.Property(widgetPath$PARAM[widgetprop]), favourite) | String.Contains(Container(211).ListItem.Property(widgetPath$PARAM[widgetprop]), xsp)</visible>
@@ -377,10 +377,10 @@
             <radiowidth>100</radiowidth>
             <radioheight>50</radioheight>
             <radioposx>414</radioposx>
-			<textureradiofocus colordiffuse="$INFO[Skin.String(ActiveSpinControlColor)]">common/radio/radio-button-fo-small.png</textureradiofocus>
-			<textureradionofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/radio/radio-button-nf-small.png</textureradionofocus>
-			<textureradioondisabled colordiffuse="aaffffff">common/radio/radio-button-fo-small.png</textureradioondisabled>
-			<textureradiooffdisabled colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/radio/radio-button-nf-small.png</textureradiooffdisabled>
+			<textureradiofocus colordiffuse="$INFO[Skin.String(ActiveSpinControlColor)]">common/radio/radio-button-fo.png</textureradiofocus>
+			<textureradionofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/radio/radio-button-nf.png</textureradionofocus>
+			<textureradioondisabled colordiffuse="aaffffff">common/radio/radio-button-fo.png</textureradioondisabled>
+			<textureradiooffdisabled colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/radio/radio-button-nf.png</textureradiooffdisabled>
             <selected>String.IsEqual(Container(211).ListItem.Property(widgetAutoRotate$PARAM[widgetprop]), enabled)</selected>
             <visible>Skin.String(widgets_rotate,override)</visible>
             <visible>!String.IsEmpty(Container(211).ListItem.Property(widgetPath$PARAM[widgetprop]))</visible>
@@ -395,10 +395,10 @@
             <radiowidth>100</radiowidth>
             <radioheight>50</radioheight>
             <radioposx>414</radioposx>
-			<textureradiofocus colordiffuse="$INFO[Skin.String(ActiveSpinControlColor)]">common/radio/radio-button-fo-small.png</textureradiofocus>
-			<textureradionofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/radio/radio-button-nf-small.png</textureradionofocus>
-			<textureradioondisabled colordiffuse="aaffffff">common/radio/radio-button-fo-small.png</textureradioondisabled>
-			<textureradiooffdisabled colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/radio/radio-button-nf-small.png</textureradiooffdisabled>
+			<textureradiofocus colordiffuse="$INFO[Skin.String(ActiveSpinControlColor)]">common/radio/radio-button-fo.png</textureradiofocus>
+			<textureradionofocus colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/radio/radio-button-nf.png</textureradionofocus>
+			<textureradioondisabled colordiffuse="aaffffff">common/radio/radio-button-fo.png</textureradioondisabled>
+			<textureradiooffdisabled colordiffuse="$INFO[Skin.String(ButtonTextColor)]">common/radio/radio-button-nf.png</textureradiooffdisabled>
             <selected>String.IsEqual(Container(211).ListItem.Property(widgetFixedFocus$PARAM[widgetprop]), enabled) | String.Contains(Container(211).ListItem.Property(widgetstyle$PARAM[widgetprop]),details)</selected>
             <visible>!String.IsEmpty(Container(211).ListItem.Property(widgetPath$PARAM[widgetprop])) + !String.IsEqual(Skin.String(HomeLayout),bingie)</visible>
         </control>

@@ -4,6 +4,9 @@
     <defaultcontrol always="true">77777</defaultcontrol>
     <menucontrol>900</menucontrol>
     <include>CustomBingieWinProps</include>
+    <onload>SetProperty(CurrentWidgetID,1510,Home)</onload>
+    <onload>SetProperty(BingieLoadedHub,new,Home)</onload>
+    <onunload condition="String.IsEqual(Window(Home).Property(BingieLoadedHub),new)">ClearProperty(BingieLoadedHub,Home)</onunload>
     <include>BingieViews_WindowOpen_Fade</include>
     <controls>
 		<include>Defs_TMDbHelper_Loader</include>

@@ -950,7 +950,7 @@
         <content sortby="$PARAM[widgetSortBy]" sortorder="$PARAM[widgetSortOrder]" limit="$PARAM[widgetLimit]" target="$PARAM[widgetTarget]" browse="never">$PARAM[widgetPath]</content>
     </include>
     <include name="widget_base_content_refresh">
-        <content browse="never" target="$PARAM[widgetTarget]">$VAR[$PARAM[widgetid]-refresh]</content>
+        <content sortby="$PARAM[widgetSortBy]" sortorder="$PARAM[widgetSortOrder]" limit="$PARAM[widgetLimit]" browse="never" target="$PARAM[widgetTarget]">$VAR[$PARAM[widgetid]-refresh]</content>
     </include>
     <include name="widget_base_content_submenu">
         <content><include>skinshortcuts-mainmenu-submenu</include></content>

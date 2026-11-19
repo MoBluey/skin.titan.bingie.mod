@@ -20,9 +20,17 @@ The existing eight hub rows remain the default. To use up to 24 rows, enable **E
 
 Unlock hub widgets, open Movies or TV Shows, and use each row's existing widget picker to choose its source and label. For example, assign Continue Watching, Trending, New Releases and individual genre lists from the add-ons you already use. No provider or account is required by the skin change itself, and no personal feed choices are included.
 
-Extended hubs load the first three rows, then prefetch two rows ahead as you move down. Configured rows that are empty or still loading remain reachable, including after gaps between configured rows. Other hubs and the Home layout keep their existing behaviour.
+Extended hubs load the first three rows, then prefetch two rows ahead as you move down. Configured rows that are empty or still loading remain reachable, including after gaps between configured rows. Other hubs keep their existing behaviour.
 
 Turn the option off to return to eight rows. Additional row settings are retained for the next time you enable it.
+
+## Home shelf loading
+
+BINGIE Home loads the first three normal or Force Refresh rows, then prefetches two rows ahead as you browse down. Empty and deferred rows remain reachable without reserving an empty artwork row. Single-widget layouts and static widgets keep their existing loading behaviour.
+
+Returning from Home to an extended Movies or TV Shows hub starts with its first three rows again. Home focus cannot make the hub load all later rows during window allocation.
+
+The bundled Home controls are generated from the shipped defaults. Skin Shortcuts rebuilds customised menus on the first launch after an update.
 
 ## Optional TMDb New & Popular shelves
 

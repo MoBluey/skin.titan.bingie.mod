@@ -583,11 +583,52 @@
 			<property name="submenuVisibility">137</property>
 		</item>
 	</include>
+	<variable name="2510-path">
+		<value condition="!String.IsEqual(Skin.String(HomeLayout),bingie) | !true">plugin://script.skin.helper.widgets/?action=inprogressshowsandmovies&amp;mediatype=media&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]</value>
+		<value condition="[String.IsEqual(Container(900).ListItem.Property(submenuVisibility),home) | Skin.HasSetting(ShowAllWidgets)]">plugin://script.skin.helper.widgets/?action=inprogressshowsandmovies&amp;mediatype=media&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]</value>
+		<value />
+	</variable>
+	<variable name="2520-path">
+		<value condition="!String.IsEqual(Skin.String(HomeLayout),bingie) | !true">plugin://script.skin.helper.widgets/?action=recentshowsandmovies&amp;mediatype=media&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]</value>
+		<value condition="[String.IsEqual(Container(900).ListItem.Property(submenuVisibility),home) | Skin.HasSetting(ShowAllWidgets)]">plugin://script.skin.helper.widgets/?action=recentshowsandmovies&amp;mediatype=media&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]</value>
+		<value />
+	</variable>
+	<variable name="2530-path">
+		<value condition="!String.IsEqual(Skin.String(HomeLayout),bingie) | !true">special://skin/playlists/bingeworthyshows.xsp</value>
+		<value condition="[String.IsEqual(Container(900).ListItem.Property(submenuVisibility),home) | Skin.HasSetting(ShowAllWidgets)]">special://skin/playlists/bingeworthyshows.xsp</value>
+		<value />
+	</variable>
+	<variable name="2540-path">
+		<value condition="!String.IsEqual(Skin.String(HomeLayout),bingie) | !true">plugin://script.skin.helper.widgets/?action=watchagainshowsandmovies&amp;mediatype=media&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]</value>
+		<value condition="[String.IsEqual(Container(900).ListItem.Property(submenuVisibility),home) | Skin.HasSetting(ShowAllWidgets)] + String.IsEqual(Window(Home).Property(BingieHomeMenu),home) + Integer.IsGreater(Window(Home).Property(BingieHomeWidgetID),2510)">plugin://script.skin.helper.widgets/?action=watchagainshowsandmovies&amp;mediatype=media&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]</value>
+		<value />
+	</variable>
+	<variable name="2550-path">
+		<value condition="!String.IsEqual(Skin.String(HomeLayout),bingie) | !true">special://skin/playlists/criticallyacclaimedmovies.xsp</value>
+		<value condition="[String.IsEqual(Container(900).ListItem.Property(submenuVisibility),home) | Skin.HasSetting(ShowAllWidgets)] + String.IsEqual(Window(Home).Property(BingieHomeMenu),home) + Integer.IsGreater(Window(Home).Property(BingieHomeWidgetID),2520)">special://skin/playlists/criticallyacclaimedmovies.xsp</value>
+		<value />
+	</variable>
+	<variable name="2560-path">
+		<value condition="!String.IsEqual(Skin.String(HomeLayout),bingie) | !true">plugin://script.skin.helper.widgets/?action=similarshowsandmovies&amp;mediatype=media&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]</value>
+		<value condition="[String.IsEqual(Container(900).ListItem.Property(submenuVisibility),home) | Skin.HasSetting(ShowAllWidgets)] + String.IsEqual(Window(Home).Property(BingieHomeMenu),home) + Integer.IsGreater(Window(Home).Property(BingieHomeWidgetID),2530)">plugin://script.skin.helper.widgets/?action=similarshowsandmovies&amp;mediatype=media&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]</value>
+		<value />
+	</variable>
+	<variable name="2570-path">
+		<value condition="!String.IsEqual(Skin.String(HomeLayout),bingie) | !true">$INCLUDE[MyListWidget]</value>
+		<value condition="[String.IsEqual(Container(900).ListItem.Property(submenuVisibility),home) | Skin.HasSetting(ShowAllWidgets)] + String.IsEqual(Window(Home).Property(BingieHomeMenu),home) + Integer.IsGreater(Window(Home).Property(BingieHomeWidgetID),2540)">$INCLUDE[MyListWidget]</value>
+		<value />
+	</variable>
+	<variable name="2580-path">
+		<value condition="!String.IsEqual(Skin.String(HomeLayout),bingie) | !true">plugin://script.skin.helper.widgets/?action=forgenre&amp;mediatype=media&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]</value>
+		<value condition="[String.IsEqual(Container(900).ListItem.Property(submenuVisibility),home) | Skin.HasSetting(ShowAllWidgets)] + String.IsEqual(Window(Home).Property(BingieHomeMenu),home) + Integer.IsGreater(Window(Home).Property(BingieHomeWidgetID),2550)">plugin://script.skin.helper.widgets/?action=forgenre&amp;mediatype=media&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]</value>
+		<value />
+	</variable>
 	<variable name="2510-refresh">
+		<value condition="String.IsEmpty($VAR[2510-path])" />
 		<value condition="!String.IsEmpty(Window(Home).property(skinhelper-refreshvideowidgetsbusy))">special://skin/extras/emptywidget.xsp</value>
 		<value condition="!String.IsEmpty(Window(Home).property(favwidgetrefresh))">special://skin/extras/emptywidget.xsp</value>
 		<value condition="Window.isactive(fullscreenvideo)">special://skin/extras/emptywidget.xsp</value>
-		<value>plugin://script.skin.helper.widgets/?action=inprogressshowsandmovies&amp;mediatype=media&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]</value>
+		<value>$VAR[2510-path]</value>
 	</variable>
 	<variable name="widgetinfolabel-2510">
 		<value condition="String.Contains(Container(2510).ListItem.Property(DBTYPE), systeminfo)">$INFO[Container(2510).ListItem.label] $INFO[Container(2510).ListItem.label2]</value>
@@ -605,10 +646,11 @@
 		<value condition="!String.IsEmpty(Container(2510).ListItem.StartTime)">$INFO[Container(2510).ListItem.ChannelName,, • ]$INFO[Container(2510).ListItem.StartTime,, - ]$INFO[Container(2510).ListItem.EndTime,, • ]$INFO[Container(2510).ListItem.Genre]</value>
 	</variable>
 	<variable name="2520-refresh">
+		<value condition="String.IsEmpty($VAR[2520-path])" />
 		<value condition="!String.IsEmpty(Window(Home).property(skinhelper-refreshvideowidgetsbusy))">special://skin/extras/emptywidget.xsp</value>
 		<value condition="!String.IsEmpty(Window(Home).property(favwidgetrefresh))">special://skin/extras/emptywidget.xsp</value>
 		<value condition="Window.IsActive(fullscreenvideo)">special://skin/extras/emptywidget.xsp</value>
-		<value>plugin://script.skin.helper.widgets/?action=recentshowsandmovies&amp;mediatype=media&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]</value>
+		<value>$VAR[2520-path]</value>
 	</variable>
 	<variable name="widgetinfolabel-2520">
 		<value condition="String.Contains(Container(2520).ListItem.Property(DBTYPE), systeminfo)">$INFO[Container(2520).ListItem.label] $INFO[Container(2520).ListItem.label2]</value>
@@ -626,10 +668,11 @@
 		<value condition="!String.IsEmpty(Container(2520).ListItem.StartTime)">$INFO[Container(2520).ListItem.ChannelName,, • ]$INFO[Container(2520).ListItem.StartTime,, - ]$INFO[Container(2520).ListItem.EndTime,, • ]$INFO[Container(2520).ListItem.Genre]</value>
 	</variable>
 	<variable name="2530-refresh">
+		<value condition="String.IsEmpty($VAR[2530-path])" />
 		<value condition="!String.IsEmpty(Window(Home).property(skinhelper-refreshvideowidgetsbusy))">special://skin/extras/emptywidget.xsp</value>
 		<value condition="!String.IsEmpty(Window(Home).property(favwidgetrefresh))">special://skin/extras/emptywidget.xsp</value>
 		<value condition="Window.IsActive(fullscreenvideo)">special://skin/extras/emptywidget.xsp</value>
-		<value>special://skin/playlists/bingeworthyshows.xsp</value>
+		<value>$VAR[2530-path]</value>
 	</variable>
 	<variable name="widgetinfolabel-2530">
 		<value condition="String.Contains(Container(2530).ListItem.Property(DBTYPE), systeminfo)">$INFO[Container(2530).ListItem.label] $INFO[Container(2530).ListItem.label2]</value>
@@ -647,10 +690,11 @@
 		<value condition="!String.IsEmpty(Container(2530).ListItem.StartTime)">$INFO[Container(2530).ListItem.ChannelName,, • ]$INFO[Container(2530).ListItem.StartTime,, - ]$INFO[Container(2530).ListItem.EndTime,, • ]$INFO[Container(2530).ListItem.Genre]</value>
 	</variable>
 	<variable name="2540-refresh">
+		<value condition="String.IsEmpty($VAR[2540-path])" />
 		<value condition="!String.IsEmpty(Window(Home).property(skinhelper-refreshvideowidgetsbusy))">special://skin/extras/emptywidget.xsp</value>
 		<value condition="!String.IsEmpty(Window(Home).property(favwidgetrefresh))">special://skin/extras/emptywidget.xsp</value>
 		<value condition="Window.IsActive(fullscreenvideo)">special://skin/extras/emptywidget.xsp</value>
-		<value>plugin://script.skin.helper.widgets/?action=watchagainshowsandmovies&amp;mediatype=media&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]</value>
+		<value>$VAR[2540-path]</value>
 	</variable>
 	<variable name="widgetinfolabel-2540">
 		<value condition="String.Contains(Container(2540).ListItem.Property(DBTYPE), systeminfo)">$INFO[Container(2540).ListItem.label] $INFO[Container(2540).ListItem.label2]</value>
@@ -668,10 +712,11 @@
 		<value condition="!String.IsEmpty(Container(2540).ListItem.StartTime)">$INFO[Container(2540).ListItem.ChannelName,, • ]$INFO[Container(2540).ListItem.StartTime,, - ]$INFO[Container(2540).ListItem.EndTime,, • ]$INFO[Container(2540).ListItem.Genre]</value>
 	</variable>
 	<variable name="2550-refresh">
+		<value condition="String.IsEmpty($VAR[2550-path])" />
 		<value condition="!String.IsEmpty(Window(Home).property(skinhelper-refreshvideowidgetsbusy))">special://skin/extras/emptywidget.xsp</value>
 		<value condition="!String.IsEmpty(Window(Home).property(favwidgetrefresh))">special://skin/extras/emptywidget.xsp</value>
 		<value condition="Window.IsActive(fullscreenvideo)">special://skin/extras/emptywidget.xsp</value>
-		<value>special://skin/playlists/criticallyacclaimedmovies.xsp</value>
+		<value>$VAR[2550-path]</value>
 	</variable>
 	<variable name="widgetinfolabel-2550">
 		<value condition="String.Contains(Container(2550).ListItem.Property(DBTYPE), systeminfo)">$INFO[Container(2550).ListItem.label] $INFO[Container(2550).ListItem.label2]</value>
@@ -689,10 +734,11 @@
 		<value condition="!String.IsEmpty(Container(2550).ListItem.StartTime)">$INFO[Container(2550).ListItem.ChannelName,, • ]$INFO[Container(2550).ListItem.StartTime,, - ]$INFO[Container(2550).ListItem.EndTime,, • ]$INFO[Container(2550).ListItem.Genre]</value>
 	</variable>
 	<variable name="2560-refresh">
+		<value condition="String.IsEmpty($VAR[2560-path])" />
 		<value condition="!String.IsEmpty(Window(Home).property(skinhelper-refreshvideowidgetsbusy))">special://skin/extras/emptywidget.xsp</value>
 		<value condition="!String.IsEmpty(Window(Home).property(favwidgetrefresh))">special://skin/extras/emptywidget.xsp</value>
 		<value condition="Window.IsActive(fullscreenvideo)">special://skin/extras/emptywidget.xsp</value>
-		<value>plugin://script.skin.helper.widgets/?action=similarshowsandmovies&amp;mediatype=media&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]</value>
+		<value>$VAR[2560-path]</value>
 	</variable>
 	<variable name="widgetinfolabel-2560">
 		<value condition="String.Contains(Container(2560).ListItem.Property(DBTYPE), systeminfo)">$INFO[Container(2560).ListItem.label] $INFO[Container(2560).ListItem.label2]</value>
@@ -710,10 +756,11 @@
 		<value condition="!String.IsEmpty(Container(2560).ListItem.StartTime)">$INFO[Container(2560).ListItem.ChannelName,, • ]$INFO[Container(2560).ListItem.StartTime,, - ]$INFO[Container(2560).ListItem.EndTime,, • ]$INFO[Container(2560).ListItem.Genre]</value>
 	</variable>
 	<variable name="2570-refresh">
+		<value condition="String.IsEmpty($VAR[2570-path])" />
 		<value condition="!String.IsEmpty(Window(Home).property(skinhelper-refreshvideowidgetsbusy))">special://skin/extras/emptywidget.xsp</value>
 		<value condition="!String.IsEmpty(Window(Home).property(favwidgetrefresh))">special://skin/extras/emptywidget.xsp</value>
 		<value condition="Window.IsActive(fullscreenvideo)">special://skin/extras/emptywidget.xsp</value>
-		<value>$INCLUDE[MyListWidget]</value>
+		<value>$VAR[2570-path]</value>
 	</variable>
 	<variable name="widgetinfolabel-2570">
 		<value condition="String.Contains(Container(2570).ListItem.Property(DBTYPE), systeminfo)">$INFO[Container(2570).ListItem.label] $INFO[Container(2570).ListItem.label2]</value>
@@ -731,10 +778,11 @@
 		<value condition="!String.IsEmpty(Container(2570).ListItem.StartTime)">$INFO[Container(2570).ListItem.ChannelName,, • ]$INFO[Container(2570).ListItem.StartTime,, - ]$INFO[Container(2570).ListItem.EndTime,, • ]$INFO[Container(2570).ListItem.Genre]</value>
 	</variable>
 	<variable name="2580-refresh">
+		<value condition="String.IsEmpty($VAR[2580-path])" />
 		<value condition="!String.IsEmpty(Window(Home).property(skinhelper-refreshvideowidgetsbusy))">special://skin/extras/emptywidget.xsp</value>
 		<value condition="!String.IsEmpty(Window(Home).property(favwidgetrefresh))">special://skin/extras/emptywidget.xsp</value>
 		<value condition="Window.IsActive(fullscreenvideo)">special://skin/extras/emptywidget.xsp</value>
-		<value>plugin://script.skin.helper.widgets/?action=forgenre&amp;mediatype=media&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]</value>
+		<value>$VAR[2580-path]</value>
 	</variable>
 	<variable name="widgetinfolabel-2580">
 		<value condition="String.Contains(Container(2580).ListItem.Property(DBTYPE), systeminfo)">$INFO[Container(2580).ListItem.label] $INFO[Container(2580).ListItem.label2]</value>
@@ -766,8 +814,10 @@
 			<param name="widgetid" value="2510" />
 			<param name="submenuid" value="home" />
 			<param name="widgetName" value="$LOCALIZE[31535] $VAR[ForCurrentProfileNameLabel]" />
+			<param name="staged" value="true" />
 		</include>
 		<include content="widget_base" condition="true">
+			<param name="staged" value="true" />
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="2510" />
@@ -775,7 +825,7 @@
 			<param name="submenuid" value="home" />
 			<param name="widgetTags" value="WidgetTagOverlayAuto" />
 			<param name="widgetTarget" value="videos" />
-			<param name="widgetPath" value="plugin://script.skin.helper.widgets/?action=inprogressshowsandmovies&amp;mediatype=media&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]" />
+			<param name="widgetPath" value="$VAR[2510-path]" />
 			<param name="widgetStyle" value="widget_layout_default" />
 			<param name="widgetSortBy" value="" />
 			<param name="widgetSortOrder" value="" />
@@ -787,8 +837,10 @@
 			<param name="widgetid" value="2520" />
 			<param name="submenuid" value="home" />
 			<param name="widgetName" value="$LOCALIZE[31127]" />
+			<param name="staged" value="true" />
 		</include>
 		<include content="widget_base" condition="true">
+			<param name="staged" value="true" />
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="2520" />
@@ -796,7 +848,7 @@
 			<param name="submenuid" value="home" />
 			<param name="widgetTags" value="WidgetTagOverlayAuto" />
 			<param name="widgetTarget" value="videos" />
-			<param name="widgetPath" value="plugin://script.skin.helper.widgets/?action=recentshowsandmovies&amp;mediatype=media&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]" />
+			<param name="widgetPath" value="$VAR[2520-path]" />
 			<param name="widgetStyle" value="widget_layout_default" />
 			<param name="widgetSortBy" value="" />
 			<param name="widgetSortOrder" value="" />
@@ -808,8 +860,10 @@
 			<param name="widgetid" value="2530" />
 			<param name="submenuid" value="home" />
 			<param name="widgetName" value="$LOCALIZE[31079]" />
+			<param name="staged" value="true" />
 		</include>
 		<include content="widget_base" condition="true">
+			<param name="staged" value="true" />
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="2530" />
@@ -817,7 +871,7 @@
 			<param name="submenuid" value="home" />
 			<param name="widgetTags" value="WidgetTagOverlayAuto" />
 			<param name="widgetTarget" value="videos" />
-			<param name="widgetPath" value="special://skin/playlists/bingeworthyshows.xsp" />
+			<param name="widgetPath" value="$VAR[2530-path]" />
 			<param name="widgetStyle" value="widget_layout_default" />
 			<param name="widgetSortBy" value="" />
 			<param name="widgetSortOrder" value="" />
@@ -829,8 +883,10 @@
 			<param name="widgetid" value="2540" />
 			<param name="submenuid" value="home" />
 			<param name="widgetName" value="$LOCALIZE[31080]" />
+			<param name="staged" value="true" />
 		</include>
 		<include content="widget_base" condition="true">
+			<param name="staged" value="true" />
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="2540" />
@@ -838,7 +894,7 @@
 			<param name="submenuid" value="home" />
 			<param name="widgetTags" value="WidgetTagOverlayAuto" />
 			<param name="widgetTarget" value="videos" />
-			<param name="widgetPath" value="plugin://script.skin.helper.widgets/?action=watchagainshowsandmovies&amp;mediatype=media&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]" />
+			<param name="widgetPath" value="$VAR[2540-path]" />
 			<param name="widgetStyle" value="widget_layout_default" />
 			<param name="widgetSortBy" value="" />
 			<param name="widgetSortOrder" value="" />
@@ -850,8 +906,10 @@
 			<param name="widgetid" value="2550" />
 			<param name="submenuid" value="home" />
 			<param name="widgetName" value="$LOCALIZE[31532]" />
+			<param name="staged" value="true" />
 		</include>
 		<include content="widget_base" condition="true">
+			<param name="staged" value="true" />
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="2550" />
@@ -859,7 +917,7 @@
 			<param name="submenuid" value="home" />
 			<param name="widgetTags" value="WidgetTagOverlayAuto" />
 			<param name="widgetTarget" value="videos" />
-			<param name="widgetPath" value="special://skin/playlists/criticallyacclaimedmovies.xsp" />
+			<param name="widgetPath" value="$VAR[2550-path]" />
 			<param name="widgetStyle" value="widget_layout_default" />
 			<param name="widgetSortBy" value="" />
 			<param name="widgetSortOrder" value="" />
@@ -871,8 +929,10 @@
 			<param name="widgetid" value="2560" />
 			<param name="submenuid" value="home" />
 			<param name="widgetName" value="$ADDON[script.skin.helper.widgets 32022]" />
+			<param name="staged" value="true" />
 		</include>
 		<include content="widget_base" condition="true">
+			<param name="staged" value="true" />
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="2560" />
@@ -880,7 +940,7 @@
 			<param name="submenuid" value="home" />
 			<param name="widgetTags" value="WidgetTagOverlayAuto" />
 			<param name="widgetTarget" value="videos" />
-			<param name="widgetPath" value="plugin://script.skin.helper.widgets/?action=similarshowsandmovies&amp;mediatype=media&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]" />
+			<param name="widgetPath" value="$VAR[2560-path]" />
 			<param name="widgetStyle" value="widget_layout_default" />
 			<param name="widgetSortBy" value="" />
 			<param name="widgetSortOrder" value="" />
@@ -892,8 +952,10 @@
 			<param name="widgetid" value="2570" />
 			<param name="submenuid" value="home" />
 			<param name="widgetName" value="$LOCALIZE[31534]" />
+			<param name="staged" value="false" />
 		</include>
 		<include content="widget_base" condition="true">
+			<param name="staged" value="false" />
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="mylist" />
 			<param name="widgetid" value="2570" />
@@ -901,7 +963,7 @@
 			<param name="submenuid" value="home" />
 			<param name="widgetTags" value="WidgetTagOverlayAuto" />
 			<param name="widgetTarget" value="videos" />
-			<param name="widgetPath" value="$INCLUDE[MyListWidget]" />
+			<param name="widgetPath" value="$VAR[2570-path]" />
 			<param name="widgetStyle" value="widget_layout_default" />
 			<param name="widgetSortBy" value="" />
 			<param name="widgetSortOrder" value="" />
@@ -913,8 +975,10 @@
 			<param name="widgetid" value="2580" />
 			<param name="submenuid" value="home" />
 			<param name="widgetName" value="$LOCALIZE[515]" />
+			<param name="staged" value="true" />
 		</include>
 		<include content="widget_base" condition="true">
+			<param name="staged" value="true" />
 			<param name="containerType" value="panel" />
 			<param name="contentStyle" value="normal" />
 			<param name="widgetid" value="2580" />
@@ -922,7 +986,7 @@
 			<param name="submenuid" value="home" />
 			<param name="widgetTags" value="WidgetTagOverlayAuto" />
 			<param name="widgetTarget" value="videos" />
-			<param name="widgetPath" value="plugin://script.skin.helper.widgets/?action=forgenre&amp;mediatype=media&amp;limit=25&amp;reload=$INFO[Window(Home).Property(widgetreload)]" />
+			<param name="widgetPath" value="$VAR[2580-path]" />
 			<param name="widgetStyle" value="widget_layout_default" />
 			<param name="widgetSortBy" value="" />
 			<param name="widgetSortOrder" value="" />

@@ -761,8 +761,11 @@
 	</include>
 
     <include name="widget_header_multi">
+        <param name="staged" default="false" />
+        <definition>
         <control type="group" id="20$PARAM[widgetid]">
             <visible>Container($PARAM[widgetid]).IsUpdating + Control.IsVisible($PARAM[widgetid]) | Integer.IsGreater(Container($PARAM[widgetid]).NumItems,0)</visible>
+            <visible>!$PARAM[staged] | [Integer.IsGreater(Container($PARAM[widgetid]).NumItems,0) + !Control.HasFocus($PARAM[widgetid]7)]</visible>
             <include condition="String.IsEqual(Skin.String(HomeLayout),bingie)">BingieNoCircularWidgetHeaderAnim</include>
             <include content="BingieUnfocusedWidgetFade" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">
                 <param name="widgetid" value="$PARAM[widgetid]" />
@@ -814,6 +817,26 @@
                 <visible>Container($PARAM[widgetid]).IsUpdating + Integer.IsEqual(Container($PARAM[widgetid]).NumItems,0)</visible>
             </control>
         </control>
+        <control type="button" id="$PARAM[widgetid]7">
+            <visible>$PARAM[staged] + [String.IsEqual(Container(900).ListItem.Property(submenuVisibility),$PARAM[submenuid]) | Skin.HasSetting(ShowAllWidgets)] + [Integer.IsEqual(Container($PARAM[widgetid]).NumItems,0) | Control.HasFocus($PARAM[widgetid]7)]</visible>
+            <left>130</left>
+            <width>auto</width>
+            <height>46</height>
+            <font>Bold31</font>
+            <label>$PARAM[widgetName]</label>
+            <textcolor>$INFO[Skin.String(BingieHeaderTextColor)]</textcolor>
+            <focusedcolor>$INFO[Skin.String(BingieButtonFocusTextColor)]</focusedcolor>
+            <texturenofocus />
+            <onfocus>SetProperty(BingieHomeMenu,$PARAM[submenuid],Home)</onfocus>
+            <onfocus>SetProperty(BingieHomeWidgetID,$PARAM[widgetid],Home)</onfocus>
+            <include content="SetFixedVerticalNavigationProps">
+                <param name="widgetid" value="$PARAM[widgetid]" />
+            </include>
+            <onclick condition="Integer.IsGreater(Container($PARAM[widgetid]).NumItems,0)">SetFocus($PARAM[widgetid])</onclick>
+            <onright condition="Integer.IsGreater(Container($PARAM[widgetid]).NumItems,0)">SetFocus($PARAM[widgetid])</onright>
+            <onright condition="Integer.IsEqual(Container($PARAM[widgetid]).NumItems,0)">noop</onright>
+        </control>
+        </definition>
     </include>
     <include name="widget_header_leftalign">
         <include content="left">
@@ -822,8 +845,11 @@
     </include>
 
     <include name="widget_base">
+        <param name="staged" default="false" />
+        <definition>
         <!-- Bingie  + Not Circular + Fixed -->
         <include content="widget_base_normal" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + !Skin.HasSetting(New_Circular)">
+            <param name="staged" value="$PARAM[staged]" />
             <param name="containerType" value="fixedlist" />  <!-- Change to wraplist to make continuous scrolling -->
             <param name="contentStyle" value="$PARAM[contentStyle]" />
             <param name="widgetid" value="$PARAM[widgetid]" />
@@ -840,6 +866,7 @@
         </include>
 		 <!-- Bingie  + New Circular + Fixed -->
         <include content="widget_base_normal" condition="String.IsEqual(Skin.String(HomeLayout),bingie) + Skin.HasSetting(New_Circular)">
+            <param name="staged" value="$PARAM[staged]" />
             <param name="containerType" value="wraplist" />
             <param name="contentStyle" value="$PARAM[contentStyle]" />
             <param name="widgetid" value="$PARAM[widgetid]" />
@@ -854,6 +881,7 @@
             <param name="visibility" value="$PARAM[visibility]" />
             <param name="multiRows" value="$PARAM[multiRows]" />
         </include>
+        </definition>
     </include>
 
     <include name="WidgetBaseBingieIncludes">
@@ -875,15 +903,20 @@
     </include>
 
     <include name="widget_base_normal">
+        <param name="staged" default="false" />
+        <definition>
         <control type="$PARAM[containerType]" id="$PARAM[widgetid]">
+            <enable>!$PARAM[staged] | String.IsEqual(Container(900).ListItem.Property(submenuVisibility),$PARAM[submenuid]) | Skin.HasSetting(ShowAllWidgets)</enable>
             <visible>$PARAM[visibility]</visible>
             <visible>String.IsEqual(Container(900).ListItem.Property(submenuVisibility),$PARAM[submenuid]) | Skin.HasSetting(ShowAllWidgets)</visible>
-            <visible>Container($PARAM[widgetid]).IsUpdating + Control.IsVisible($PARAM[widgetid]) | Integer.IsGreater(Container($PARAM[widgetid]).NumItems,0)</visible>
+            <visible allowhiddenfocus="$PARAM[staged]">Container($PARAM[widgetid]).IsUpdating + Control.IsVisible($PARAM[widgetid]) | Integer.IsGreater(Container($PARAM[widgetid]).NumItems,0)</visible>
             <include condition="$PARAM[multiRows]">widget_base_vertical</include>
             <orientation>horizontal</orientation>
             <width>100%</width>
             <include>ScrollTime</include>
             <preloaditems>5</preloaditems>
+            <onfocus condition="Window.IsActive(Home)">SetProperty(BingieHomeMenu,$PARAM[submenuid],Home)</onfocus>
+            <onfocus condition="Window.IsActive(Home)">SetProperty(BingieHomeWidgetID,$PARAM[widgetid],Home)</onfocus>
             <include content="WidgetBaseBingieIncludes" condition="String.IsEqual(Skin.String(HomeLayout),bingie)">
                 <param name="widgetid" value="$PARAM[widgetid]" />
             </include>
@@ -905,6 +938,7 @@
                 <param name="widgetLimit" value="$PARAM[widgetLimit]" />
             </include>
         </control>
+        </definition>
     </include>
 
     <include name="widget_base_vertical">

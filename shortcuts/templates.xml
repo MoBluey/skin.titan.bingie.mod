@@ -234,8 +234,10 @@
                 <param name="widgetid" value="$PROPERTY[id]510" />
                 <param name="submenuid" value="$PROPERTY[submenuid]" />
                 <param name="widgetName" value="$PROPERTY[widgetName1]" />
+                <param name="staged" value="$IF[contentStyle1=normal | contentStyle1=refresh THEN true ELSE false]" />
             </include>
             <include content="widget_base" condition="$IF[widgetPath1 THEN true ELSE false]">
+                <param name="staged" value="$IF[contentStyle1=normal | contentStyle1=refresh THEN $PROPERTY[multiWidgets] ELSE false]" />
                 <param name="containerType" value="$IF[widgetStyle1=details | widgetFixedFocus1~enabled THEN fixedlist ELSE panel]" />
                 <param name="contentStyle" value="$PROPERTY[contentStyle1]" />
                 <param name="widgetid" value="$PROPERTY[id]510" />
@@ -243,7 +245,7 @@
                 <param name="submenuid" value="$PROPERTY[submenuid]" />
                 <param name="widgetTags" value="$PROPERTY[widgetTags1]" />
                 <param name="widgetTarget" value="$PROPERTY[widgetTarget1]" />
-                <param name="widgetPath" value="$PROPERTY[widgetPath1]" />
+                <param name="widgetPath" value="$VAR[$PROPERTY[id]510-path]" />
                 <param name="widgetStyle" value="widget_layout_$PROPERTY[widgetStyle1]" />
                 <param name="widgetSortBy" value="$PROPERTY[widgetSortBy1]" />
                 <param name="widgetSortOrder" value="$PROPERTY[widgetSortOrder1]" />
@@ -257,8 +259,10 @@
                 <param name="widgetid" value="$PROPERTY[id]520" />
                 <param name="submenuid" value="$PROPERTY[submenuid]" />
                 <param name="widgetName" value="$PROPERTY[widgetName2]" />
+                <param name="staged" value="$IF[contentStyle2=normal | contentStyle2=refresh THEN true ELSE false]" />
             </include>
             <include content="widget_base" condition="$IF[widgetPath2 THEN true ELSE false]">
+                <param name="staged" value="$IF[contentStyle2=normal | contentStyle2=refresh THEN $PROPERTY[multiWidgets] ELSE false]" />
                 <param name="containerType" value="$IF[widgetStyle2=details | widgetFixedFocus2~enabled THEN fixedlist ELSE panel]" />
                 <param name="contentStyle" value="$PROPERTY[contentStyle2]" />
                 <param name="widgetid" value="$PROPERTY[id]520" />
@@ -266,7 +270,7 @@
                 <param name="submenuid" value="$PROPERTY[submenuid]" />
                 <param name="widgetTags" value="$PROPERTY[widgetTags2]" />
                 <param name="widgetTarget" value="$PROPERTY[widgetTarget2]" />
-                <param name="widgetPath" value="$PROPERTY[widgetPath2]" />
+                <param name="widgetPath" value="$VAR[$PROPERTY[id]520-path]" />
                 <param name="widgetStyle" value="widget_layout_$PROPERTY[widgetStyle2]" />
                 <param name="widgetSortBy" value="$PROPERTY[widgetSortBy2]" />
                 <param name="widgetSortOrder" value="$PROPERTY[widgetSortOrder2]" />
@@ -280,8 +284,10 @@
                 <param name="widgetid" value="$PROPERTY[id]530" />
                 <param name="submenuid" value="$PROPERTY[submenuid]" />
                 <param name="widgetName" value="$PROPERTY[widgetName3]" />
+                <param name="staged" value="$IF[contentStyle3=normal | contentStyle3=refresh THEN true ELSE false]" />
             </include>
             <include content="widget_base" condition="$IF[widgetPath3 THEN true ELSE false]">
+                <param name="staged" value="$IF[contentStyle3=normal | contentStyle3=refresh THEN $PROPERTY[multiWidgets] ELSE false]" />
                 <param name="containerType" value="$IF[widgetStyle3=details | widgetFixedFocus3~enabled THEN fixedlist ELSE panel]" />
                 <param name="contentStyle" value="$PROPERTY[contentStyle3]" />
                 <param name="widgetid" value="$PROPERTY[id]530" />
@@ -289,7 +295,7 @@
                 <param name="submenuid" value="$PROPERTY[submenuid]" />
                 <param name="widgetTags" value="$PROPERTY[widgetTags3]" />
                 <param name="widgetTarget" value="$PROPERTY[widgetTarget3]" />
-                <param name="widgetPath" value="$PROPERTY[widgetPath3]" />
+                <param name="widgetPath" value="$VAR[$PROPERTY[id]530-path]" />
                 <param name="widgetStyle" value="widget_layout_$PROPERTY[widgetStyle3]" />
                 <param name="widgetSortBy" value="$PROPERTY[widgetSortBy3]" />
                 <param name="widgetSortOrder" value="$PROPERTY[widgetSortOrder3]" />
@@ -303,8 +309,10 @@
                 <param name="widgetid" value="$PROPERTY[id]540" />
                 <param name="submenuid" value="$PROPERTY[submenuid]" />
                 <param name="widgetName" value="$PROPERTY[widgetName4]" />
+                <param name="staged" value="$IF[contentStyle4=normal | contentStyle4=refresh THEN true ELSE false]" />
             </include>
             <include content="widget_base" condition="$IF[widgetPath4 THEN true ELSE false]">
+                <param name="staged" value="$IF[contentStyle4=normal | contentStyle4=refresh THEN $PROPERTY[multiWidgets] ELSE false]" />
                 <param name="containerType" value="$IF[widgetStyle4=details | widgetFixedFocus4~enabled THEN fixedlist ELSE panel]" />
                 <param name="contentStyle" value="$PROPERTY[contentStyle4]" />
                 <param name="widgetid" value="$PROPERTY[id]540" />
@@ -312,7 +320,7 @@
                 <param name="submenuid" value="$PROPERTY[submenuid]" />
                 <param name="widgetTags" value="$PROPERTY[widgetTags4]" />
                 <param name="widgetTarget" value="$PROPERTY[widgetTarget4]" />
-                <param name="widgetPath" value="$PROPERTY[widgetPath4]" />
+                <param name="widgetPath" value="$VAR[$PROPERTY[id]540-path]" />
                 <param name="widgetStyle" value="widget_layout_$PROPERTY[widgetStyle4]" />
                 <param name="widgetSortBy" value="$PROPERTY[widgetSortBy4]" />
                 <param name="widgetSortOrder" value="$PROPERTY[widgetSortOrder4]" />
@@ -326,8 +334,10 @@
                 <param name="widgetid" value="$PROPERTY[id]550" />
                 <param name="submenuid" value="$PROPERTY[submenuid]" />
                 <param name="widgetName" value="$PROPERTY[widgetName5]" />
+                <param name="staged" value="$IF[contentStyle5=normal | contentStyle5=refresh THEN true ELSE false]" />
             </include>
             <include content="widget_base" condition="$IF[widgetPath5 THEN true ELSE false]">
+                <param name="staged" value="$IF[contentStyle5=normal | contentStyle5=refresh THEN $PROPERTY[multiWidgets] ELSE false]" />
                 <param name="containerType" value="$IF[widgetStyle5=details | widgetFixedFocus5~enabled THEN fixedlist ELSE panel]" />
                 <param name="contentStyle" value="$PROPERTY[contentStyle5]" />
                 <param name="widgetid" value="$PROPERTY[id]550" />
@@ -335,7 +345,7 @@
                 <param name="submenuid" value="$PROPERTY[submenuid]" />
                 <param name="widgetTags" value="$PROPERTY[widgetTags5]" />
                 <param name="widgetTarget" value="$PROPERTY[widgetTarget5]" />
-                <param name="widgetPath" value="$PROPERTY[widgetPath5]" />
+                <param name="widgetPath" value="$VAR[$PROPERTY[id]550-path]" />
                 <param name="widgetStyle" value="widget_layout_$PROPERTY[widgetStyle5]" />
                 <param name="widgetSortBy" value="$PROPERTY[widgetSortBy5]" />
                 <param name="widgetSortOrder" value="$PROPERTY[widgetSortOrder5]" />
@@ -349,8 +359,10 @@
                 <param name="widgetid" value="$PROPERTY[id]560" />
                 <param name="submenuid" value="$PROPERTY[submenuid]" />
                 <param name="widgetName" value="$PROPERTY[widgetName6]" />
+                <param name="staged" value="$IF[contentStyle6=normal | contentStyle6=refresh THEN true ELSE false]" />
             </include>
             <include content="widget_base" condition="$IF[widgetPath6 THEN true ELSE false]">
+                <param name="staged" value="$IF[contentStyle6=normal | contentStyle6=refresh THEN $PROPERTY[multiWidgets] ELSE false]" />
                 <param name="containerType" value="$IF[widgetStyle6=details | widgetFixedFocus6~enabled THEN fixedlist ELSE panel]" />
                 <param name="contentStyle" value="$PROPERTY[contentStyle6]" />
                 <param name="widgetid" value="$PROPERTY[id]560" />
@@ -358,7 +370,7 @@
                 <param name="submenuid" value="$PROPERTY[submenuid]" />
                 <param name="widgetTags" value="$PROPERTY[widgetTags6]" />
                 <param name="widgetTarget" value="$PROPERTY[widgetTarget6]" />
-                <param name="widgetPath" value="$PROPERTY[widgetPath6]" />
+                <param name="widgetPath" value="$VAR[$PROPERTY[id]560-path]" />
                 <param name="widgetStyle" value="widget_layout_$PROPERTY[widgetStyle6]" />
                 <param name="widgetSortBy" value="$PROPERTY[widgetSortBy6]" />
                 <param name="widgetSortOrder" value="$PROPERTY[widgetSortOrder6]" />
@@ -372,8 +384,10 @@
                 <param name="widgetid" value="$PROPERTY[id]570" />
                 <param name="submenuid" value="$PROPERTY[submenuid]" />
                 <param name="widgetName" value="$PROPERTY[widgetName7]" />
+                <param name="staged" value="$IF[contentStyle7=normal | contentStyle7=refresh THEN true ELSE false]" />
             </include>
             <include content="widget_base" condition="$IF[widgetPath7 THEN true ELSE false]">
+                <param name="staged" value="$IF[contentStyle7=normal | contentStyle7=refresh THEN $PROPERTY[multiWidgets] ELSE false]" />
                 <param name="containerType" value="$IF[widgetStyle7=details | widgetFixedFocus7~enabled THEN fixedlist ELSE panel]" />
                 <param name="contentStyle" value="$PROPERTY[contentStyle7]" />
                 <param name="widgetid" value="$PROPERTY[id]570" />
@@ -381,7 +395,7 @@
                 <param name="submenuid" value="$PROPERTY[submenuid]" />
                 <param name="widgetTags" value="$PROPERTY[widgetTags7]" />
                 <param name="widgetTarget" value="$PROPERTY[widgetTarget7]" />
-                <param name="widgetPath" value="$PROPERTY[widgetPath7]" />
+                <param name="widgetPath" value="$VAR[$PROPERTY[id]570-path]" />
                 <param name="widgetStyle" value="widget_layout_$PROPERTY[widgetStyle7]" />
                 <param name="widgetSortBy" value="$PROPERTY[widgetSortBy7]" />
                 <param name="widgetSortOrder" value="$PROPERTY[widgetSortOrder7]" />
@@ -395,8 +409,10 @@
                 <param name="widgetid" value="$PROPERTY[id]580" />
                 <param name="submenuid" value="$PROPERTY[submenuid]" />
                 <param name="widgetName" value="$PROPERTY[widgetName8]" />
+                <param name="staged" value="$IF[contentStyle8=normal | contentStyle8=refresh THEN true ELSE false]" />
             </include>
             <include content="widget_base" condition="$IF[widgetPath8 THEN true ELSE false]">
+                <param name="staged" value="$IF[contentStyle8=normal | contentStyle8=refresh THEN $PROPERTY[multiWidgets] ELSE false]" />
                 <param name="containerType" value="$IF[widgetStyle8=details | widgetFixedFocus8~enabled THEN fixedlist ELSE panel]" />
                 <param name="contentStyle" value="$PROPERTY[contentStyle8]" />
                 <param name="widgetid" value="$PROPERTY[id]580" />
@@ -404,7 +420,7 @@
                 <param name="submenuid" value="$PROPERTY[submenuid]" />
                 <param name="widgetTags" value="$PROPERTY[widgetTags8]" />
                 <param name="widgetTarget" value="$PROPERTY[widgetTarget8]" />
-                <param name="widgetPath" value="$PROPERTY[widgetPath8]" />
+                <param name="widgetPath" value="$VAR[$PROPERTY[id]580-path]" />
                 <param name="widgetStyle" value="widget_layout_$PROPERTY[widgetStyle8]" />
                 <param name="widgetSortBy" value="$PROPERTY[widgetSortBy8]" />
                 <param name="widgetSortOrder" value="$PROPERTY[widgetSortOrder8]" />
@@ -414,12 +430,54 @@
             </include>
         </controls>
         <variables>
+            <!-- Home-only focus state cannot be changed by a hub or another menu. -->
+            <variable name="$PROPERTY[id]510-path">
+                <value condition="!String.IsEqual(Skin.String(HomeLayout),bingie) | !$PROPERTY[multiWidgets]">$PROPERTY[widgetPath1]</value>
+                <value condition="[String.IsEqual(Container(900).ListItem.Property(submenuVisibility),$PROPERTY[submenuid]) | Skin.HasSetting(ShowAllWidgets)]">$PROPERTY[widgetPath1]</value>
+                <value />
+            </variable>
+            <variable name="$PROPERTY[id]520-path">
+                <value condition="!String.IsEqual(Skin.String(HomeLayout),bingie) | !$PROPERTY[multiWidgets]">$PROPERTY[widgetPath2]</value>
+                <value condition="[String.IsEqual(Container(900).ListItem.Property(submenuVisibility),$PROPERTY[submenuid]) | Skin.HasSetting(ShowAllWidgets)]">$PROPERTY[widgetPath2]</value>
+                <value />
+            </variable>
+            <variable name="$PROPERTY[id]530-path">
+                <value condition="!String.IsEqual(Skin.String(HomeLayout),bingie) | !$PROPERTY[multiWidgets]">$PROPERTY[widgetPath3]</value>
+                <value condition="[String.IsEqual(Container(900).ListItem.Property(submenuVisibility),$PROPERTY[submenuid]) | Skin.HasSetting(ShowAllWidgets)]">$PROPERTY[widgetPath3]</value>
+                <value />
+            </variable>
+            <variable name="$PROPERTY[id]540-path">
+                <value condition="!String.IsEqual(Skin.String(HomeLayout),bingie) | !$PROPERTY[multiWidgets]">$PROPERTY[widgetPath4]</value>
+                <value condition="[String.IsEqual(Container(900).ListItem.Property(submenuVisibility),$PROPERTY[submenuid]) | Skin.HasSetting(ShowAllWidgets)] + String.IsEqual(Window(Home).Property(BingieHomeMenu),$PROPERTY[submenuid]) + Integer.IsGreater(Window(Home).Property(BingieHomeWidgetID),$PROPERTY[id]510)">$PROPERTY[widgetPath4]</value>
+                <value />
+            </variable>
+            <variable name="$PROPERTY[id]550-path">
+                <value condition="!String.IsEqual(Skin.String(HomeLayout),bingie) | !$PROPERTY[multiWidgets]">$PROPERTY[widgetPath5]</value>
+                <value condition="[String.IsEqual(Container(900).ListItem.Property(submenuVisibility),$PROPERTY[submenuid]) | Skin.HasSetting(ShowAllWidgets)] + String.IsEqual(Window(Home).Property(BingieHomeMenu),$PROPERTY[submenuid]) + Integer.IsGreater(Window(Home).Property(BingieHomeWidgetID),$PROPERTY[id]520)">$PROPERTY[widgetPath5]</value>
+                <value />
+            </variable>
+            <variable name="$PROPERTY[id]560-path">
+                <value condition="!String.IsEqual(Skin.String(HomeLayout),bingie) | !$PROPERTY[multiWidgets]">$PROPERTY[widgetPath6]</value>
+                <value condition="[String.IsEqual(Container(900).ListItem.Property(submenuVisibility),$PROPERTY[submenuid]) | Skin.HasSetting(ShowAllWidgets)] + String.IsEqual(Window(Home).Property(BingieHomeMenu),$PROPERTY[submenuid]) + Integer.IsGreater(Window(Home).Property(BingieHomeWidgetID),$PROPERTY[id]530)">$PROPERTY[widgetPath6]</value>
+                <value />
+            </variable>
+            <variable name="$PROPERTY[id]570-path">
+                <value condition="!String.IsEqual(Skin.String(HomeLayout),bingie) | !$PROPERTY[multiWidgets]">$PROPERTY[widgetPath7]</value>
+                <value condition="[String.IsEqual(Container(900).ListItem.Property(submenuVisibility),$PROPERTY[submenuid]) | Skin.HasSetting(ShowAllWidgets)] + String.IsEqual(Window(Home).Property(BingieHomeMenu),$PROPERTY[submenuid]) + Integer.IsGreater(Window(Home).Property(BingieHomeWidgetID),$PROPERTY[id]540)">$PROPERTY[widgetPath7]</value>
+                <value />
+            </variable>
+            <variable name="$PROPERTY[id]580-path">
+                <value condition="!String.IsEqual(Skin.String(HomeLayout),bingie) | !$PROPERTY[multiWidgets]">$PROPERTY[widgetPath8]</value>
+                <value condition="[String.IsEqual(Container(900).ListItem.Property(submenuVisibility),$PROPERTY[submenuid]) | Skin.HasSetting(ShowAllWidgets)] + String.IsEqual(Window(Home).Property(BingieHomeMenu),$PROPERTY[submenuid]) + Integer.IsGreater(Window(Home).Property(BingieHomeWidgetID),$PROPERTY[id]550)">$PROPERTY[widgetPath8]</value>
+                <value />
+            </variable>
 
             <variable name="$PROPERTY[id]510-refresh">
+                <value condition="String.IsEmpty($VAR[$PROPERTY[id]510-path])" />
                 <value condition="!String.IsEmpty(Window(Home).property(skinhelper-refreshvideowidgetsbusy))">special://skin/extras/emptywidget.xsp</value>
                 <value condition="!String.IsEmpty(Window(Home).property(favwidgetrefresh))">special://skin/extras/emptywidget.xsp</value>
                 <value condition="Window.isactive(fullscreenvideo)">special://skin/extras/emptywidget.xsp</value>
-                <value>$PROPERTY[widgetPath1]</value>
+                <value>$VAR[$PROPERTY[id]510-path]</value>
             </variable>
             <variable name="widgetinfolabel-$PROPERTY[id]510">
                 <value condition="String.Contains(Container($PROPERTY[id]510).ListItem.Property(DBTYPE), systeminfo)">$INFO[Container($PROPERTY[id]510).ListItem.label] $INFO[Container($PROPERTY[id]510).ListItem.label2]</value>
@@ -439,10 +497,11 @@
 
 
             <variable name="$PROPERTY[id]520-refresh">
+                <value condition="String.IsEmpty($VAR[$PROPERTY[id]520-path])" />
                 <value condition="!String.IsEmpty(Window(Home).property(skinhelper-refreshvideowidgetsbusy))">special://skin/extras/emptywidget.xsp</value>
                 <value condition="!String.IsEmpty(Window(Home).property(favwidgetrefresh))">special://skin/extras/emptywidget.xsp</value>
                 <value condition="Window.IsActive(fullscreenvideo)">special://skin/extras/emptywidget.xsp</value>
-                <value>$PROPERTY[widgetPath2]</value>
+                <value>$VAR[$PROPERTY[id]520-path]</value>
             </variable>
             <variable name="widgetinfolabel-$PROPERTY[id]520">
                 <value condition="String.Contains(Container($PROPERTY[id]520).ListItem.Property(DBTYPE), systeminfo)">$INFO[Container($PROPERTY[id]520).ListItem.label] $INFO[Container($PROPERTY[id]520).ListItem.label2]</value>
@@ -462,10 +521,11 @@
 
 
             <variable name="$PROPERTY[id]530-refresh">
+                <value condition="String.IsEmpty($VAR[$PROPERTY[id]530-path])" />
                 <value condition="!String.IsEmpty(Window(Home).property(skinhelper-refreshvideowidgetsbusy))">special://skin/extras/emptywidget.xsp</value>
                 <value condition="!String.IsEmpty(Window(Home).property(favwidgetrefresh))">special://skin/extras/emptywidget.xsp</value>
                 <value condition="Window.IsActive(fullscreenvideo)">special://skin/extras/emptywidget.xsp</value>
-                <value>$PROPERTY[widgetPath3]</value>
+                <value>$VAR[$PROPERTY[id]530-path]</value>
             </variable>
             <variable name="widgetinfolabel-$PROPERTY[id]530">
                 <value condition="String.Contains(Container($PROPERTY[id]530).ListItem.Property(DBTYPE), systeminfo)">$INFO[Container($PROPERTY[id]530).ListItem.label] $INFO[Container($PROPERTY[id]530).ListItem.label2]</value>
@@ -484,10 +544,11 @@
             </variable>
 
             <variable name="$PROPERTY[id]540-refresh">
+                <value condition="String.IsEmpty($VAR[$PROPERTY[id]540-path])" />
                 <value condition="!String.IsEmpty(Window(Home).property(skinhelper-refreshvideowidgetsbusy))">special://skin/extras/emptywidget.xsp</value>
                 <value condition="!String.IsEmpty(Window(Home).property(favwidgetrefresh))">special://skin/extras/emptywidget.xsp</value>
                 <value condition="Window.IsActive(fullscreenvideo)">special://skin/extras/emptywidget.xsp</value>
-                <value>$PROPERTY[widgetPath4]</value>
+                <value>$VAR[$PROPERTY[id]540-path]</value>
             </variable>
             <variable name="widgetinfolabel-$PROPERTY[id]540">
                 <value condition="String.Contains(Container($PROPERTY[id]540).ListItem.Property(DBTYPE), systeminfo)">$INFO[Container($PROPERTY[id]540).ListItem.label] $INFO[Container($PROPERTY[id]540).ListItem.label2]</value>
@@ -506,10 +567,11 @@
             </variable>
 
             <variable name="$PROPERTY[id]550-refresh">
+                <value condition="String.IsEmpty($VAR[$PROPERTY[id]550-path])" />
                 <value condition="!String.IsEmpty(Window(Home).property(skinhelper-refreshvideowidgetsbusy))">special://skin/extras/emptywidget.xsp</value>
                 <value condition="!String.IsEmpty(Window(Home).property(favwidgetrefresh))">special://skin/extras/emptywidget.xsp</value>
                 <value condition="Window.IsActive(fullscreenvideo)">special://skin/extras/emptywidget.xsp</value>
-                <value>$PROPERTY[widgetPath5]</value>
+                <value>$VAR[$PROPERTY[id]550-path]</value>
             </variable>
             <variable name="widgetinfolabel-$PROPERTY[id]550">
                 <value condition="String.Contains(Container($PROPERTY[id]550).ListItem.Property(DBTYPE), systeminfo)">$INFO[Container($PROPERTY[id]550).ListItem.label] $INFO[Container($PROPERTY[id]550).ListItem.label2]</value>
@@ -528,10 +590,11 @@
             </variable>
 
             <variable name="$PROPERTY[id]560-refresh">
+                <value condition="String.IsEmpty($VAR[$PROPERTY[id]560-path])" />
                 <value condition="!String.IsEmpty(Window(Home).property(skinhelper-refreshvideowidgetsbusy))">special://skin/extras/emptywidget.xsp</value>
                 <value condition="!String.IsEmpty(Window(Home).property(favwidgetrefresh))">special://skin/extras/emptywidget.xsp</value>
                 <value condition="Window.IsActive(fullscreenvideo)">special://skin/extras/emptywidget.xsp</value>
-                <value>$PROPERTY[widgetPath6]</value>
+                <value>$VAR[$PROPERTY[id]560-path]</value>
             </variable>
             <variable name="widgetinfolabel-$PROPERTY[id]560">
                 <value condition="String.Contains(Container($PROPERTY[id]560).ListItem.Property(DBTYPE), systeminfo)">$INFO[Container($PROPERTY[id]560).ListItem.label] $INFO[Container($PROPERTY[id]560).ListItem.label2]</value>
@@ -550,10 +613,11 @@
             </variable>
 
             <variable name="$PROPERTY[id]570-refresh">
+                <value condition="String.IsEmpty($VAR[$PROPERTY[id]570-path])" />
                 <value condition="!String.IsEmpty(Window(Home).property(skinhelper-refreshvideowidgetsbusy))">special://skin/extras/emptywidget.xsp</value>
                 <value condition="!String.IsEmpty(Window(Home).property(favwidgetrefresh))">special://skin/extras/emptywidget.xsp</value>
                 <value condition="Window.IsActive(fullscreenvideo)">special://skin/extras/emptywidget.xsp</value>
-                <value>$PROPERTY[widgetPath7]</value>
+                <value>$VAR[$PROPERTY[id]570-path]</value>
             </variable>
             <variable name="widgetinfolabel-$PROPERTY[id]570">
                 <value condition="String.Contains(Container($PROPERTY[id]570).ListItem.Property(DBTYPE), systeminfo)">$INFO[Container($PROPERTY[id]570).ListItem.label] $INFO[Container($PROPERTY[id]570).ListItem.label2]</value>
@@ -572,10 +636,11 @@
             </variable>
 
             <variable name="$PROPERTY[id]580-refresh">
+                <value condition="String.IsEmpty($VAR[$PROPERTY[id]580-path])" />
                 <value condition="!String.IsEmpty(Window(Home).property(skinhelper-refreshvideowidgetsbusy))">special://skin/extras/emptywidget.xsp</value>
                 <value condition="!String.IsEmpty(Window(Home).property(favwidgetrefresh))">special://skin/extras/emptywidget.xsp</value>
                 <value condition="Window.IsActive(fullscreenvideo)">special://skin/extras/emptywidget.xsp</value>
-                <value>$PROPERTY[widgetPath8]</value>
+                <value>$VAR[$PROPERTY[id]580-path]</value>
             </variable>
             <variable name="widgetinfolabel-$PROPERTY[id]580">
                 <value condition="String.Contains(Container($PROPERTY[id]580).ListItem.Property(DBTYPE), systeminfo)">$INFO[Container($PROPERTY[id]580).ListItem.label] $INFO[Container($PROPERTY[id]580).ListItem.label2]</value>

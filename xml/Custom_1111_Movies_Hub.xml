@@ -5,6 +5,7 @@
     <menucontrol>900</menucontrol>
     <onload condition="Skin.HasSetting(ExtendedMovieTVHubs)">SetProperty(CurrentWidgetID,1510,Home)</onload>
     <onload condition="Skin.HasSetting(ExtendedMovieTVHubs)">SetProperty(BingieLoadedHub,movies,Home)</onload>
+    <onunload condition="String.IsEqual(Window(Home).Property(BingieLoadedHub),movies)">ClearProperty(BingieLoadedHub,Home)</onunload>
     <include>CustomBingieWinProps</include>
     <include>BingieViews_WindowOpen_Fade</include>
     <controls>

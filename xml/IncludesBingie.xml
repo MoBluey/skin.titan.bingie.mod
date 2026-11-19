@@ -2917,7 +2917,7 @@
         
 		
 		<!-- Spotlight Default Movie/Shows -->
-		<value condition="Window.IsActive(Home)">plugin://script.skin.helper.widgets/?action=recentshowsandmovies&amp;mediatype=media&amp;limit=5&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</value>
+		<value condition="Window.IsActive(Home) + [Library.HasContent(movies) | Library.HasContent(tvshows)]">plugin://script.skin.helper.widgets/?action=recentshowsandmovies&amp;mediatype=media&amp;limit=5&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</value>
 		<!-- Spotlight Default Movie/Shows -->
 		<!-- <value condition="Window.IsActive(Home)">plugin://script.skin.helper.widgets/?action=randomshowsandmovies&amp;mediatype=media&amp;limit=5&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</value> -->
         

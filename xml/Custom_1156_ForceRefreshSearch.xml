@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- BINGIE -->
-<window id="1156" type="dialog">
-	<visible>!String.IsEmpty(Window(home).Property(CustomSearch))</visible>
-	<onload>ClearProperty(CustomSearch,home)</onload>
-	<controls/>
+<window type="dialog" id="1156">
+    <visible>Window.IsActive(1109) | Window.IsActive(1108) | Window.IsActive(1106) | Window.IsActive(1107)</visible>
+    <visible>!String.IsEmpty(Window(Home).Property(CustomSearch)) | !String.IsEqual(Skin.String(CustomSearchTerm),Window(Home).Property(BingieSearchInputSeen)) | [Skin.TimerIsRunning(bingiesearchrefresh) + Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(bingiesearchrefresh),1)]</visible>
+    <onload condition="!String.IsEmpty(Skin.String(CustomSearchTerm)) + [!String.IsEmpty(Window(Home).Property(CustomSearch)) | !String.IsEqual(Skin.String(CustomSearchTerm),Window(Home).Property(BingieSearchInputSeen))]">Skin.TimerStart(bingiesearchrefresh)</onload>
+    <onload condition="String.IsEmpty(Skin.String(CustomSearchTerm))">ClearProperty(BingieSearchQuery,Home)</onload>
+    <onload condition="String.IsEmpty(Skin.String(CustomSearchTerm))">Skin.TimerStop(bingiesearchrefresh)</onload>
+    <onload condition="String.IsEmpty(Window(Home).Property(CustomSearch)) + String.IsEqual(Skin.String(CustomSearchTerm),Window(Home).Property(BingieSearchInputSeen)) + Skin.TimerIsRunning(bingiesearchrefresh) + Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(bingiesearchrefresh),1)">SetProperty(BingieSearchQuery,$ESCINFO[Skin.String(CustomSearchTerm)],Home)</onload>
+    <onload condition="String.IsEmpty(Window(Home).Property(CustomSearch)) + String.IsEqual(Skin.String(CustomSearchTerm),Window(Home).Property(BingieSearchInputSeen)) + Skin.TimerIsRunning(bingiesearchrefresh) + Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(bingiesearchrefresh),1)">Skin.TimerStop(bingiesearchrefresh)</onload>
+    <onload>SetProperty(BingieSearchInputSeen,$ESCINFO[Skin.String(CustomSearchTerm)],Home)</onload>
+    <onload>ClearProperty(CustomSearch,Home)</onload>
+    <onload>Dialog.Close(11156,true)</onload>
+    <controls/>
 </window>

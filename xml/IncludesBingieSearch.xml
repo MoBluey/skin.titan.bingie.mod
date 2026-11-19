@@ -7,20 +7,24 @@
         <value condition="!String.IsEmpty(Window.Property(SuggestionPath)) + [ControlGroup(77777).HasFocus() | Control.HasFocus(1007) | [Control.HasFocus(900) + !String.IsEmpty(Window.Property(KeepSuggestions))]]">$INFO[Container(1007).ListItem.Label]</value>
     </variable>
 	
-	<variable name="SearchTMDBMovies">
-        <value condition="!String.IsEmpty(Skin.String(CustomSearchTerm))">plugin://plugin.video.themoviedb.helper?info=search&amp;type=movie&amp;query=$INFO[Skin.String(CustomSearchTerm)]&amp;nextpage=false</value>
+	<variable name="BingieSearchAutocomplete">
+        <value condition="System.HasAddon(plugin.program.autocompletion) + !String.IsEmpty(Window(Home).Property(BingieSearchQuery))">plugin://plugin.program.autocompletion?info=autocomplete&amp;&amp;id=$INFO[Window(Home).Property(BingieSearchQuery)]</value>
+        <value>special://skin/extras/emptywidget.xsp</value>
+    </variable>
+    <variable name="SearchTMDBMovies">
+        <value condition="!String.IsEmpty(Window(Home).Property(BingieSearchQuery))">plugin://plugin.video.themoviedb.helper?info=search&amp;type=movie&amp;query=$INFO[Window(Home).Property(BingieSearchQuery)]&amp;nextpage=false</value>
     </variable>
 	
 	<variable name="SearchTMDBCollections">
-        <value condition="!String.IsEmpty(Skin.String(CustomSearchTerm))">plugin://plugin.video.themoviedb.helper?info=search&amp;type=collection&amp;query=$INFO[Skin.String(CustomSearchTerm)]&amp;nextpage=false</value>       
+        <value condition="!String.IsEmpty(Window(Home).Property(BingieSearchQuery))">plugin://plugin.video.themoviedb.helper?info=search&amp;type=collection&amp;query=$INFO[Window(Home).Property(BingieSearchQuery)]&amp;nextpage=false</value>
     </variable>
 	
 	<variable name="SearchTMDBShows">
-        <value condition="!String.IsEmpty(Skin.String(CustomSearchTerm))">plugin://plugin.video.themoviedb.helper?info=search&amp;type=tv&amp;query=$INFO[Skin.String(CustomSearchTerm)]&amp;nextpage=false</value>       
+        <value condition="!String.IsEmpty(Window(Home).Property(BingieSearchQuery))">plugin://plugin.video.themoviedb.helper?info=search&amp;type=tv&amp;query=$INFO[Window(Home).Property(BingieSearchQuery)]&amp;nextpage=false</value>
     </variable>
 	
 	<variable name="SearchTMDBPeople">
-        <value condition="!String.IsEmpty(Skin.String(CustomSearchTerm))">plugin://plugin.video.themoviedb.helper?info=search&amp;type=person&amp;query=$INFO[Skin.String(CustomSearchTerm)]&amp;nextpage=false</value>       
+        <value condition="!String.IsEmpty(Window(Home).Property(BingieSearchQuery))">plugin://plugin.video.themoviedb.helper?info=search&amp;type=person&amp;query=$INFO[Window(Home).Property(BingieSearchQuery)]&amp;nextpage=false</value>
     </variable>
 
     <variable name="EmptySearchResultsString">
@@ -1059,11 +1063,13 @@
 
     <!-- Search Container Template -->
     <include name="SearchContainerTemplate">
+        <param name="allowhiddenfocus" default="false" />
         <definition>
             <control type="panel" id="$PARAM[id]">
+                <enable>!$PARAM[allowhiddenfocus] | !String.IsEmpty(Window(Home).Property(BingieSearchQuery))</enable>
                 <nested />
 				<animation effect="fade" start="100" end="0" time="0" condition="Container(500).IsUpdating + String.IsEmpty(Skin.String(CustomSearchTerm)) + !String.IsEmpty(Window.Property(SuggestionPath)) | Container($PARAM[id]).IsUpdating  + !String.IsEmpty(Skin.String(CustomSearchTerm))">Conditional</animation>
-                <visible>Container($PARAM[id]).IsUpdating | Integer.IsGreater(Container($PARAM[id]).NumItems,0) | $PARAM[force_visible]</visible>
+                <visible allowhiddenfocus="$PARAM[allowhiddenfocus]">Container($PARAM[id]).IsUpdating | Integer.IsGreater(Container($PARAM[id]).NumItems,0) | $PARAM[force_visible]</visible>
                 <visible>$PARAM[visibility]</visible>
                 <width>$PARAM[width]</width>
                 <height>$PARAM[height]</height>
@@ -1141,8 +1147,10 @@
         <param name="orientation">horizontal</param>
         <param name="layoutheight">search_widget_height</param>
         <param name="force_tags" default="false" />
+        <param name="allowhiddenfocus" default="true" />
         <definition>
                 <include content="SearchContainerTemplate">
+                    <param name="allowhiddenfocus" value="$PARAM[allowhiddenfocus]" />
                     <nested />
                     <include condition="Skin.HasSetting(ShowInformationBypass) + $PARAM[allow_showinfo_onclick]">ContainerShowInfoOnclick</include>
                     <param name="id" value="$PARAM[id]"/>
@@ -1208,8 +1216,8 @@
             <param name="force_tags" value="true" />
             <param name="allow_showinfo_onclick" value="true" />
 			<param name="orientation" value="vertical" />
-            <param name="visibility" value="!String.IsEmpty(Skin.String(CustomSearchTerm))" />
-            <content limit="100" target="videos">videodb://tvshows/titles/-1/-1/-1/-1/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22episodes%22%7D</content>
+            <param name="visibility" value="!String.IsEmpty(Window(Home).Property(BingieSearchQuery))" />
+            <content limit="100" target="videos">$INFO[Window(Home).Property(BingieSearchQuery),videodb://tvshows/titles/-1/-1/-1/-1/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22,%22%5D%7D%5D%7D%2C%22type%22%3A%22episodes%22%7D]</content>
         </include>
     </include>
 
@@ -1225,8 +1233,8 @@
             <param name="force_tags" value="true" />
             <param name="allow_showinfo_onclick" value="false" />
 			<param name="orientation" value="vertical" />
-            <param name="visibility" value="!String.IsEmpty(Skin.String(CustomSearchTerm))" />
-            <content limit="100" target="videos">videodb://musicvideos/titles/?xsp=%7b%22order%22%3a%7b%22direction%22%3a%22ascending%22%2c%22ignorefolders%22%3a0%2c%22method%22%3a%22sorttitle%22%7d%2c%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22title%22%2c%22operator%22%3a%22contains%22%2c%22value%22%3a%5b%22$INFO[Skin.String(CustomSearchTerm)]%22%5d%7d%5d%7d%2c%22type%22%3a%22musicvideos%22%7d</content>
+            <param name="visibility" value="!String.IsEmpty(Window(Home).Property(BingieSearchQuery))" />
+            <content limit="100" target="videos">$INFO[Window(Home).Property(BingieSearchQuery),videodb://musicvideos/titles/?xsp=%7b%22order%22%3a%7b%22direction%22%3a%22ascending%22%2c%22ignorefolders%22%3a0%2c%22method%22%3a%22sorttitle%22%7d%2c%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22title%22%2c%22operator%22%3a%22contains%22%2c%22value%22%3a%5b%22,%22%5d%7d%5d%7d%2c%22type%22%3a%22musicvideos%22%7d]</content>
         </include>
     </include>
 
@@ -1242,8 +1250,8 @@
             <param name="force_tags" value="true" />
             <param name="allow_showinfo_onclick" value="false" />
 			<param name="orientation" value="vertical" />
-            <param name="visibility" value="!String.IsEmpty(Skin.String(CustomSearchTerm))" />
-            <content limit="100" target="music">musicdb://albums/?xsp=%7b%22order%22%3a%7b%22direction%22%3a%22ascending%22%2c%22ignorefolders%22%3a0%2c%22method%22%3a%22album%22%7d%2c%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22album%22%2c%22operator%22%3a%22contains%22%2c%22value%22%3a%5b%22$INFO[Skin.String(CustomSearchTerm)]%22%5d%7d%5d%7d%2c%22type%22%3a%22albums%22%7d</content>
+            <param name="visibility" value="!String.IsEmpty(Window(Home).Property(BingieSearchQuery))" />
+            <content limit="100" target="music">$INFO[Window(Home).Property(BingieSearchQuery),musicdb://albums/?xsp=%7b%22order%22%3a%7b%22direction%22%3a%22ascending%22%2c%22ignorefolders%22%3a0%2c%22method%22%3a%22album%22%7d%2c%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22album%22%2c%22operator%22%3a%22contains%22%2c%22value%22%3a%5b%22,%22%5d%7d%5d%7d%2c%22type%22%3a%22albums%22%7d]</content>
         </include>
     </include>
 
@@ -1259,8 +1267,8 @@
             <param name="force_tags" value="true" />
             <param name="allow_showinfo_onclick" value="false" />
 			<param name="orientation" value="vertical" />
-            <param name="visibility" value="!String.IsEmpty(Skin.String(CustomSearchTerm))" />
-            <content limit="100" target="music">musicdb://artists/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22artist%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22artist%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22artists%22%7D</content>
+            <param name="visibility" value="!String.IsEmpty(Window(Home).Property(BingieSearchQuery))" />
+            <content limit="100" target="music">$INFO[Window(Home).Property(BingieSearchQuery),musicdb://artists/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22artist%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22artist%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22,%22%5D%7D%5D%7D%2C%22type%22%3A%22artists%22%7D]</content>
         </include>
     </include>
 
@@ -1276,8 +1284,8 @@
             <param name="force_tags" value="true" />
             <param name="allow_showinfo_onclick" value="false" />
 			<param name="orientation" value="vertical" />
-            <param name="visibility" value="!String.IsEmpty(Skin.String(CustomSearchTerm))" />
-            <content limit="100" target="music">musicdb://songs/?xsp=%7b%22order%22%3a%7b%22direction%22%3a%22ascending%22%2c%22ignorefolders%22%3a0%2c%22method%22%3a%22artist%22%7d%2c%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22title%22%2c%22operator%22%3a%22contains%22%2c%22value%22%3a%5b%22$INFO[Skin.String(CustomSearchTerm)]%22%5d%7d%5d%7d%2c%22type%22%3a%22songs%22%7d</content>
+            <param name="visibility" value="!String.IsEmpty(Window(Home).Property(BingieSearchQuery))" />
+            <content limit="100" target="music">$INFO[Window(Home).Property(BingieSearchQuery),musicdb://songs/?xsp=%7b%22order%22%3a%7b%22direction%22%3a%22ascending%22%2c%22ignorefolders%22%3a0%2c%22method%22%3a%22artist%22%7d%2c%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22title%22%2c%22operator%22%3a%22contains%22%2c%22value%22%3a%5b%22,%22%5d%7d%5d%7d%2c%22type%22%3a%22songs%22%7d]</content>
         </include>
     </include>
 </includes>

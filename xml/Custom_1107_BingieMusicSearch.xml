@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- BINGIE -->
 <window id="1107">
+    <onunload>ClearProperty(CustomSearch,Home)</onunload>
+    <onunload>SetProperty(BingieSearchInputSeen,$ESCINFO[Skin.String(CustomSearchTerm)],Home)</onunload>
+    <onunload>Skin.TimerStop(bingiesearchrefresh)</onunload>
     <defaultcontrol always="true">101</defaultcontrol>
     <onload>SetProperty(CustomSearch,1,home)</onload>
     <include>BingieViews_WindowOpen_Fade</include>
@@ -31,7 +34,7 @@
                 <width>auto</width>
 				<font>Reg32</font>
                 <label>Press up for full keyboard</label>
-				<visible>Skin.HasSetting(EnableBingieSearchFullKeyboard)</visible>				
+				<visible>Skin.HasSetting(EnableBingieSearchFullKeyboard)</visible>
             </control>
 		</control>
         <!-- Pseudo-Keyboard Layout -->
@@ -111,8 +114,9 @@
             <param name="onitemfocus" value="" />
             <param name="onitemfocus2" value="" />
             <onclick condition="!String.IsEmpty(Skin.String(CustomSearchTerm))">Skin.SetString(CustomSearchTerm,$INFO[ListItem.Label])</onclick>
+            <onclick condition="!String.IsEmpty(Skin.String(CustomSearchTerm))">SetProperty(CustomSearch,1,Home)</onclick>
             <visible>!$EXP[IsActualKeyboardActive]</visible>
-            <content condition="!String.IsEmpty(Skin.String(CustomSearchTerm)) + System.HasAddon(plugin.program.autocompletion)">plugin://plugin.program.autocompletion?info=autocomplete&amp;&amp;id=$INFO[Skin.String(CustomSearchTerm)]</content>
+            <content>$VAR[BingieSearchAutocomplete]</content>
         </include>
 
         <!--- ########## Right Layout ########## -->
@@ -153,7 +157,7 @@
             <wrapmultiline>true</wrapmultiline>
             <textcolor>$INFO[Skin.String(BingiePrimaryTextColor)]</textcolor>
             <label>$VAR[EmptySearchResultsString]</label>
-            <visible>!Container(77777).IsUpdating + !Integer.IsGreater(Container(77777).NumItems,0)</visible>
+            <visible>!Container(77777).IsUpdating + !Integer.IsGreater(Container(77777).NumItems,0) + String.IsEqual(Skin.String(CustomSearchTerm),Window(Home).Property(BingieSearchQuery))</visible>
         </control>
 
 <!-- Widget Top Label -->
@@ -166,28 +170,28 @@
 			<include content="SearchResultWidgetTopLabel">
 				<param name="groupid" value="5900" />
 				<param name="id" value="590" />
-				<param name="label" value="$INFO[Skin.String(CustomSearchTerm),$LOCALIZE[31580] &quot;,&quot;]" />
+				<param name="label" value="$INFO[Window(Home).Property(BingieSearchQuery),$LOCALIZE[31580] &quot;,&quot;]" />
 				<visible>Control.HasFocus(590) + !Container(590).IsUpdating</visible>
 			</include>	
 			<!-- Search Albums Widget -->
 			<include content="SearchResultWidgetTopLabel">
 				<param name="groupid" value="6100" />
 				<param name="id" value="610" />
-				<param name="label" value="$INFO[Skin.String(CustomSearchTerm),$LOCALIZE[31593] &quot;,&quot;]" />
+				<param name="label" value="$INFO[Window(Home).Property(BingieSearchQuery),$LOCALIZE[31593] &quot;,&quot;]" />
 				<visible>Control.HasFocus(610) + !Container(610).IsUpdating</visible>
 			</include>	
 			<!-- Search Artists Widget -->
 			<include content="SearchResultWidgetTopLabel">
 				<param name="groupid" value="6200" />
 				<param name="id" value="620" />
-				<param name="label" value="$INFO[Skin.String(CustomSearchTerm),$LOCALIZE[31081] &quot;,&quot;]" />
+				<param name="label" value="$INFO[Window(Home).Property(BingieSearchQuery),$LOCALIZE[31081] &quot;,&quot;]" />
 				<visible>Control.HasFocus(620) + !Container(620).IsUpdating</visible>
 			</include>
 			<!-- Search Songs Widget -->
 			<include content="SearchResultWidgetTopLabel">
 				<param name="groupid" value="6300" />
 				<param name="id" value="630" />
-				<param name="label" value="$INFO[Skin.String(CustomSearchTerm),$LOCALIZE[31082] &quot;,&quot;]" />
+				<param name="label" value="$INFO[Window(Home).Property(BingieSearchQuery),$LOCALIZE[31082] &quot;,&quot;]" />
 				<visible>Control.HasFocus(630) + !Container(630).IsUpdating</visible>
 			</include>
 			</control>
@@ -228,7 +232,7 @@
         <include content="Busy_Spinner">
             <param name="centerleft" value="65%"/>
             <param name="centertop" value="50%"/>
-            <param name="visibility" value="[Control.HasFocus(1007) + Container(500).IsUpdating] | [Container(590).IsUpdating | Container(610).IsUpdating | Container(620).IsUpdating | Container(630).IsUpdating] + !String.IsEmpty(Skin.String(CustomSearchTerm))"/>
+            <param name="visibility" value="[Control.HasFocus(1007) + Container(500).IsUpdating] | [Container(590).IsUpdating | Container(610).IsUpdating | Container(620).IsUpdating | Container(630).IsUpdating] + !String.IsEmpty(Window(Home).Property(BingieSearchQuery))"/>
             <param name="size" value="100"/>
         </include>
 	</controls>
